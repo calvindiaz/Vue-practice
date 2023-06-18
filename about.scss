@@ -1,0 +1,188 @@
+@import "reset";
+
+@import "general";
+
+.title {
+  width: 70vw;
+  margin: 2rem auto 3.5rem auto;
+  text-align: center;
+
+  h1 {
+    color: $secondColor;
+    font-size: 3rem;
+    span {
+      padding: 0.2rem 0.4rem;
+      border-radius: 10px;
+    }
+  }
+
+  p {
+    color: $secondColor;
+
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+}
+
+section.logo-desc {
+  background-color: $thirdColor;
+  .content {
+    width: 70vw;
+    display: flex;
+    margin: auto;
+    // padding: 2.5rem;
+    .logo {
+      width: 20vw;
+      margin-right: auto;
+      position: relative;
+      img {
+        width: 100%;
+        position: absolute;
+
+        top: 65px;
+      }
+    }
+
+    .card-1 {
+      width: 15vw;
+
+      .other-pic1 {
+        img {
+          width: 100%;
+          height: 15vw;
+          border-radius: 50%;
+          object-fit: cover;
+          position: relative;
+          bottom: -90px;
+        }
+      }
+      p.word-1 {
+        color: $secondColor;
+        position: relative;
+        font-size: 1.2rem;
+        top: -275px;
+      }
+    }
+
+    .card-2 {
+      width: 15vw;
+
+      .other-pic2 {
+        img {
+          width: 100%;
+          height: 15vw;
+          border-radius: 50%;
+          object-fit: cover;
+          position: relative;
+          top: -40px;
+        }
+      }
+
+      p.word-2 {
+        color: $secondColor;
+
+        position: relative;
+        font-size: 1.2rem;
+        right: -55px;
+      }
+    }
+  }
+}
+
+section.map {
+  background-image: url("./picture/seamless.png");
+  .content {
+    width: 70vw;
+    margin: auto;
+    .title {
+      text-align: center;
+    }
+
+    .embed {
+      width: 50vw;
+      margin: auto;
+      iframe {
+        width: 100%;
+      }
+    }
+  }
+}
+
+section.address {
+  background-color: $thirdColor;
+
+  .content {
+    width: 50vw;
+    margin: auto;
+    padding: 1rem 0;
+    ul {
+      li {
+        padding: 0.5rem 0;
+        color: $secondColor;
+        font-size: 1.5rem;
+        list-style-type: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .title {
+    width: 80%;
+    margin: 1rem auto;
+    p {
+      width: 100%;
+      text-indent: 1rem;
+      text-align: start;
+      font-size: 1.1rem;
+    }
+  }
+
+  section.logo-desc {
+    display: none;
+  }
+
+  section.map {
+    background-image: url("./picture/seamless.png");
+    .content {
+      width: 100%;
+      margin: auto;
+      .title {
+        font-size: 0.5rem;
+        text-align: center;
+      }
+
+      .embed {
+        width: 100%;
+
+        position: relative;
+        aspect-ratio: 4/3;
+        iframe {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  section.address {
+    background-color: $thirdColor;
+
+    .content {
+      width: 100%;
+      // margin: auto;
+      // padding: 1rem 0;
+      ul {
+        li {
+          // padding: 0.5rem 0;
+          // color: $secondColor;
+          font-size: 1.3rem;
+          // list-style-type: none;
+        }
+      }
+    }
+  }
+}

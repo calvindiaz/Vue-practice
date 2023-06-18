@@ -1,0 +1,271 @@
+@import "reset";
+
+@import "general";
+
+.QA-title {
+  width: 50vw;
+  margin: 1.5rem auto;
+  display: flex;
+  align-items: center;
+  img {
+    display: block;
+  }
+
+  h1 {
+    color: $secondColor;
+    padding-left: 1.5rem;
+  }
+}
+
+section.QA {
+  width: 50vw;
+  margin: auto;
+
+  .QA-item {
+    position: relative;
+    border: 3px solid $themeColor;
+    border-radius: 10px;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    .question {
+      color: $secondColor;
+      font-size: 1.75rem;
+      display: flex;
+      align-items: center;
+      .symbol {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        margin-left: auto;
+        flex-shrink: 0;
+        span {
+          position: absolute;
+          width: 60%;
+          height: 4px;
+
+          background-color: $themeColor;
+          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          &:nth-child(1) {
+            top: 13px;
+          }
+          &:nth-child(2) {
+            top: 13px;
+            transform: rotate(90deg);
+          }
+        }
+
+        &.minus {
+          span {
+            &:nth-child(2) {
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+
+      &::before {
+        content: "Q：";
+      }
+    }
+
+    .ans {
+      padding: 0;
+      height: 0;
+      color: $secondColor;
+      margin-top: 0.5rem;
+      font-size: 1.5rem;
+
+      border-radius: 5px;
+
+      overflow: hidden;
+      transition: height, padding 0.3s;
+    }
+  }
+}
+
+.SlideDown {
+  height: auto !important;
+  padding: 1rem 2.5rem !important;
+}
+
+.contact-title {
+  width: 40vw;
+  margin: auto;
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  img {
+    display: block;
+  }
+
+  h1 {
+    color: $secondColor;
+    padding-left: 1.5rem;
+  }
+}
+
+.dash {
+  width: 40vw;
+  margin: 0.5rem auto;
+  background-color: rgb(140, 132, 126);
+  height: 5px;
+}
+
+section.contact {
+  width: 40vw;
+  margin: auto;
+  form {
+    .name,
+    .mail,
+    .tel,
+    .commit {
+      margin: 1rem 0;
+
+      label {
+        color: $secondColor;
+        font-size: 1.75rem;
+        width: 140px;
+        display: inline-block;
+        text-align: start;
+      }
+
+      input {
+        font-size: 1.3rem;
+        width: 20vw;
+        border-radius: 5px;
+
+        &:focus {
+          outline-color: $themeColor;
+        }
+      }
+    }
+
+    .gender {
+      label.sex-lab {
+        color: $secondColor;
+
+        display: inline-block;
+        width: 140px;
+        text-align: left;
+        font-size: 1.75rem;
+      }
+      label.sex {
+        color: $secondColor;
+
+        font-size: 1.3rem;
+      }
+    }
+
+    textarea {
+      font-size: 1.3rem;
+
+      width: 40vw;
+      height: 7.5vw;
+
+      &:hover {
+        outline-color: $themeColor;
+      }
+    }
+
+    .btn {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: space-evenly;
+      button {
+        color: white;
+        background-color: $themeColor;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .QA-title {
+    width: 100%;
+    justify-content: center;
+  }
+
+  section.QA {
+    width: 90%;
+
+    .QA-item {
+      padding: 0.3rem 0;
+      .question {
+        font-size: 1.2rem;
+      }
+
+      .ans {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .contact-title {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dash {
+    width: 80%;
+  }
+
+  section.contact {
+    width: 80%;
+    margin: auto;
+    form {
+      .name,
+      .mail,
+      .tel,
+      .commit {
+        margin: 1rem 0;
+
+        label {
+          color: $secondColor;
+          font-size: 1.25rem;
+          width: 100px;
+          display: inline-block;
+          text-align: start;
+        }
+
+        input {
+          width: 270px;
+          font-size: 1.3rem;
+
+          border-radius: 5px;
+
+          &:focus {
+            outline-color: $themeColor;
+          }
+        }
+      }
+
+      .gender {
+        label.sex-lab {
+          display: inline-block;
+          width: 100px;
+          text-align: left;
+          font-size: 1.25rem;
+        }
+        label.sex {
+          font-size: 1.3rem;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .SlideDown {
+    padding: 0.5rem !important;
+  }
+}

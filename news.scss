@@ -1,0 +1,235 @@
+@import "reset.scss";
+
+@import "general";
+
+section.news {
+  .news-item {
+    background-color: $thirdColor;
+    .card {
+      width: 70vw;
+
+      padding: 2rem;
+      margin: 2rem auto 0 auto;
+      position: relative;
+      display: flex;
+      h1 {
+        color: $secondColor;
+        font-size: 2.5rem;
+        letter-spacing: 0.35rem;
+        position: absolute;
+        top: -30px;
+      }
+
+      .pic {
+        width: 35vw;
+
+        a {
+          img {
+            display: block;
+            width: 100%;
+            height: 30vh;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .content {
+        width: 25vw;
+        display: flex;
+        margin-left: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+          color: $secondColor;
+        }
+        p {
+          color: $secondColor;
+
+          margin-top: auto;
+        }
+      }
+
+      &::before,
+      ::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        z-index: -2;
+      }
+
+      &::before {
+        background-color: rgba(255, 151, 9, 0.85);
+        z-index: -1;
+        transition: 0.8s;
+      }
+      &:hover {
+        background-color: transparent;
+        z-index: 1;
+      }
+      &:hover::before,
+      :hover::after {
+        width: 100%;
+      }
+    }
+    &:nth-child(even) {
+      background-color: white;
+    }
+  }
+}
+
+.page {
+  width: 70vw;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+
+  .page-first {
+    background-color: $themeColor;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+    a {
+      text-align: center;
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .page-other {
+    background-color: rgb(140, 132, 126);
+    margin: 0 1rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      display: block;
+      text-decoration: none;
+
+      color: white;
+    }
+
+    &:nth-child(6) {
+      background-color: white;
+    }
+  }
+
+  .page-next {
+    background-color: $themeColor;
+    width: 64px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+    a {
+      text-align: center;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (max-width: 415px) {
+  section.news {
+    .news-item {
+      // background-color: $thirdColor;
+      .card {
+        width: 100%;
+
+        padding: 2rem 0;
+        // margin: 2rem auto 0 auto;
+        // position: relative;
+        display: flex;
+        flex-wrap: wrap;
+
+        .pic {
+          width: 100%;
+
+          a {
+            img {
+              display: block;
+              width: 100%;
+              height: 270px;
+            }
+          }
+        }
+
+        .content {
+          width: 100%;
+
+          h2 {
+            font-size: 1.25rem;
+          }
+          p {
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .page {
+    width: 100%;
+    // margin: 2rem auto;
+    // display: flex;
+    // justify-content: center;
+
+    .page-first {
+      // background-color: $themeColor;
+      // width: 48px;
+      // height: 48px;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      margin: 0 0.25rem;
+      // a {
+      //   text-align: center;
+      //   color: white;
+      //   text-decoration: none;
+      // }
+    }
+    .page-other {
+      // background-color: rgb(140, 132, 126);
+      margin: 0 0.25rem;
+      // width: 48px;
+      // height: 48px;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // a {
+      //   display: block;
+      //   text-decoration: none;
+
+      //   color: white;
+      // }
+
+      // &:nth-child(6) {
+      //   background-color: white;
+      // }
+    }
+
+    .page-next {
+      // background-color: $themeColor;
+      width: 70px;
+      // height: 48px;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      margin: 0 0.25rem;
+      // a {
+      //   text-align: center;
+      //   color: white;
+      //   text-decoration: none;
+      // }
+    }
+  }
+}
