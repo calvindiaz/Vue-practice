@@ -371,14 +371,17 @@ section.all-product .product .order button.price {
 section.all-product .product .cards {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
   padding: 1rem 0;
 }
 section.all-product .product .cards .card {
-  width: 15vw;
+  width: 23%;
   display: flex;
   flex-direction: column;
-  padding: 0 0.1rem;
-  margin: 0 0.4rem;
+  /* padding:  0rem; */
+  box-sizing: border-box;
+  margin: 1rem 0rem;
   background-color: rgb(251, 242, 226);
   transition: 0.3s;
 }
