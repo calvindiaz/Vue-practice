@@ -6,7 +6,7 @@
 }
 
 header {
-  background: url("./picture/seamless.png");
+  background: url("../picture/seamless.png");
   box-shadow: 0 10px 6px -6px #777;
 }
 header section.logo {
@@ -328,7 +328,7 @@ section.news .news-item .card .pic a img {
   width: 100%;
   height: 30vh;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 section.news .news-item .card .content {
   width: 25vw;
@@ -461,4 +461,4 @@ section.news .news-item:nth-child(even) {
     width: 70px;
     margin: 0 0.25rem;
   }
-}/*# sourceMappingURL=news.css.map */
+} /*# sourceMappingURL=news.css.map */
