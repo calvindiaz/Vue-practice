@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FunToy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 導航列 -->
+  <div id="app">
+    <header>
+      <section class="logo">
+        <a href="index.html"><img class="logo" src="../../picture/logo/LogoVer2.png" alt="" /></a>
+        <div class="top">
+          <!-- RWD漢堡條 -->
+          <div class="menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <!-- ---------------- -->
+          <div class="search">
+            <img src="../../picture/icon/scan.png" alt="" />
+            <input type="search" placeholder="搜尋商品" />
+          </div>
+          <!-- RWD搜尋 -->
+          <div class="rwd-search">
+            <input type="search" placeholder="搜尋商品" />
+          </div>
+          <!-- ------- -->
+          <div class="user">
+            <a href="#"><img src="../../picture/icon/user.png" alt="" /></a>
+          </div>
+
+          <div class="cart">
+            <a href="#"><img src="../../picture/icon/shopping-cart.png" alt="" /></a>
+          </div>
+          <!-- RWD導覽列 -->
+          <div class="rwd-nav">
+            <ul>
+              <li v-for="page in navList" :key="page.id">
+                <a :href="page.goToPageUrl"><i :class="page.iconClass "></i>{{page.title}}</a>
+              </li>
+            </ul>
+          </div>
+          <!-- ---------------- -->
+        </div>
+      </section>
+      <section class="nav-list">
+        <nav>
+          <ul>
+            <li v-for="page in navList" :key="page.id">
+              <a :href="page.goToPageUrl"><i :class="page.iconClass "></i>{{page.title}}</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+    <!-- 輪播banner -->
+    <section class="banner">
+      <h1>FunToy Film</h1>
+
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+
+          <div v-for="slide in swiper" :key="slide.imgSrc" class="swiper-slide">
+            <img :src="slide.imgSrc" :class="slide.class" />
+          </div>
+
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev">
+          <img src="../../picture/icon/left-arrow.png" alt="" />
+        </div>
+        <div class="swiper-button-next">
+          <img src="../../picture/icon/right-arrow.png" alt="" />
+        </div>
+
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+        <!-- </div> -->
+      </div>
+  </section>
+  <!-- News -->
+  <section class="news">
+    <div class="md-news-title">
+      <h1>最新消息<span>NEWS</span></h1>
+      <a href="./news.html">看更多</a>
+    </div>
+    <div class="content">
+      <div class="main">
+        <img src="../../picture/news/mario-export.png" alt="" />
+        <br />
+        <p>
+          一番賞『超級瑪利歐兄弟電影版』確定 05 月開抽
+          問號磚塊、超級蘑菇抱墊多種獎項登場！
+        </p>
+      </div>
+
+      <div class="other">
+        <div class="other-card">
+          <img src="../../picture/news/p2-cut.png" alt="" />
+          <br />
+          <p>
+            人氣轉蛋商品『遭遇強風也不認輸』寶可夢版登場
+            於寶可夢中心限定販售中！
+          </p>
+        </div>
+        <div class="other-card">
+          <img src="../../picture/news/p1-cut.png" alt="" />
+          <br />
+          <p>
+            T-ARTS轉蛋『靠肩Fig. 寶可夢』<br />第3彈帶來可達鴨、呆呆獸、沼王等超可愛寶可夢！
+          </p>
+        </div>
+        <div class="more">
+          <a href="news.html">MORE NEWS</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 新貨到 -->
+  <div class="new-item-title">
+    <h1>NEW ITEMS <span style="color: rgb(255, 151, 9)">!</span></h1>
+  </div>
+  <section class="new-item">
+    <div class="items">
+
+      <div v-for="newItemList in newItemSection" :key="newItemList[i]" class="cards">
+
+        <div v-for="newItem in newItemList" :key="newItem.imgSrc" class="card">
+          <a :href="newItem.newItemLink"><img :src="newItem.imgSrc" alt="" /></a>
+          <p>{{newItem.releaseDate}}發售</p>
+          <div class="newtag">NEW</div>
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- 預購商品 -->
+  <div class="preorder-title">PRE-ORDER 以下商品開放預購</div>
+  <section class="preorder">
+    <div class="second-swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <div v-for="preorderItem in preorderList" :key="preorderItem.imgSrc" class="swiper-slide">
+          <img :src="preorderItem.imgSrc" alt="" />
+          <p>{{preorderItem.releaseDate}}發售</p>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- PVC品牌 -->
+  <section class="brand">
+
+
+
+    <div v-for="brandItem in brandList" :key="brandItem.imgSrc" class="brand-card">
+      <div class="pic">
+        <a :href="brandItem.brandLink"><img :src="brandItem.imgSrc" alt="" /></a>
+      </div>
+      <p>{{brandItem.brandLink}}</p>
+    </div>
+
+
+
+  </section>
+  <!-- 本站商品 -->
+  <section class="product">
+    <div class="product-top">
+      <h1>本站商品 Products</h1>
+      <a href="./products.html">逛逛去</a>
+    </div>
+    <div class="dash"></div>
+    <div class="cards">
+
+
+
+      <div v-for="product in productList" :key="product.imgSrc" class="card">
+        <div class="pic">
+          <a :href="product.productLink"><img :src="product.imgSrc" alt="" /></a>
+        </div>
+        <p>{{product.title}}</p>
+        <div class="price">
+          <p>${{product.price}}</p>
+          <button>加入購物車</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="film">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ymVnEm4nGgQ" title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+
+  <div class="film2">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/edZnUXuhVXc" title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+
+  <div class="film3">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/b91Qfs4lMQA" title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+
+  <div class="film4">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yBBcbb97hNU" title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+
+  <div class="film5">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4UZ2wT9Nef4" title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+  <!-- 頁腳 -->
+  <footer>
+    <div class="footer-content">
+      <div class="link">
+        <ul>
+          <li><a href="#">關於我們 </a></li>
+          <li><a href="#">購物說明 </a></li>
+          <li><a href="#">會員規章 </a></li>
+          <li><a href="#">網站使用條款 </a></li>
+          <li><a href="#">聯絡我們</a></li>
+        </ul>
+        <p>
+          Copyright&copy;本網站為緯育TibaMe學員專題作品，僅供學習、展示之用
+        </p>
+      </div>
+      <div class="mail">
+        <p>客服信箱：service@funtoy.gmail.com</p>
+        <div class="social-logo">
+          <div class="logo">
+            <a href="#"><img src="../../picture/icon/facebook.png" alt="" /></a>
+          </div>
+          <div class="logo">
+            <a href="#"><img src="../../picture/icon/youtube.png" alt="" /></a>
+          </div>
+          <div class="logo">
+            <a href="#"><img src="../../picture/icon/line.png" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="scroll-to-top">
+    <img src="../../picture/icon/up-arrow.png" alt="" />
+  </div>
+  </div>
+  <!-- swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <script src="app.js"></script>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          navList: [{
+              id: "index",
+              goToPageUrl: "index.html",
+              iconClass: "fa-solid fa-house-chimney",
+              title: "首頁"
+            },
+            {
+              id: "news",
+              goToPageUrl: "news.html",
+              iconClass: "fa-solid fa-table-list",
+              title: "最新消息"
+            },
+            {
+              id: "products",
+              goToPageUrl: "products.html",
+              iconClass: "fa-solid fa-bag-shopping",
+              title: "所有商品"
+            },
+            {
+              id: "about",
+              goToPageUrl: "about.html",
+              iconClass: "fa-solid fa-address-card",
+              title: "關於我們"
+            },
+            {
+              id: "contact",
+              goToPageUrl: "contact.html",
+              iconClass: "fa-sharp fa-regular fa-message",
+              title: "常見Q&A"
+            },
+          ],
+          swiper: [{
+              imgSrc: "../../picture/video-cover/video-2.png",
+              class: "slide",
+            },
+            {
+              imgSrc: "../../picture/video-cover/video-3.png",
+              class: "slide2",
+            },
+            {
+              imgSrc: "../../picture/video-cover/video-4.png",
+              class: "slide3",
+            },
+            {
+              imgSrc: "../../picture/video-cover/video-5.png",
+              class: "slide4",
+            },
+            {
+              imgSrc: "../../picture/video-cover/video-1.png",
+              class: "slide5",
+            }
+          ],
+          newItemSection: [
+            [{
+                imgSrc: "../../picture/new-product/ironMan.png",
+                newItemLink: "../item/item.html",
+                releaseDate: "3月25日"
+              },
+              {
+                imgSrc: "../../picture/new-product/sabo.png",
+                newItemLink: "../item.html",
+                releaseDate: "3月25日"
+              }, {
+                imgSrc: "../../picture/new-product/sugo.png",
+                newItemLink: "../item.html",
+                releaseDate: "3月28日"
+              }
+            ],
+            [{
+              imgSrc: "../../picture/new-product/uta.png",
+              newItemLink: "../item.html",
+              releaseDate: "3月28日"
+            }, {
+              imgSrc: "../../picture/new-product/eva.png",
+              newItemLink: "../item.html",
+              releaseDate: "4月1日"
+            }, {
+              imgSrc: "../../picture/new-product/spider.png",
+              newItemLink: "../item.html",
+              releaseDate: "4月10日"
+            }]
+          ],
+          preorderList: [{
+              imgSrc: "../../picture/order/preorder-1.png",
+              releaseDate: "2023年8月"
+            },
+            {
+              imgSrc: "../../picture/order/tokyo.png",
+              releaseDate: "2023年8月"
+            },
+            {
+              imgSrc: "../../picture/order/hero-1.jpg",
+              releaseDate: "2023年9月"
+            },
+            {
+              imgSrc: "../../picture/order/preorder-3.png",
+              releaseDate: "2023年9月"
+            },
+            {
+              imgSrc: "../../picture/order/hero-2.jpg",
+              releaseDate: "2023年10月"
+            },
+            {
+              imgSrc: "../../picture/order/preorder-4.png",
+              releaseDate: "2023年10月"
+            },
+            {
+              imgSrc: "../../picture/order/preorder-2.png",
+              releaseDate: "2023年11月"
+            }
+          ],
+          brandList: [{
+            brandLink: "#",
+            imgSrc: "../../picture/brand/MH.png",
+            title: "MegaHouse"
+          }, {
+            brandLink: "#",
+            imgSrc: "../../picture/brand/GSC.png",
+            title: "GSC"
+          }, {
+            brandLink: "#",
+            imgSrc: "../../picture/brand/ALTER.png",
+            title: "ALTER"
+          }, {
+            brandLink: "#",
+            imgSrc: "../../picture/brand/rement_logo_343x343.png",
+            title: "re-Ment"
+          }],
+          productList: [{
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/product3.png",
+            title: "火影忍者 疾風傳 VIBRATION STARS 宇智波佐助&地達羅",
+            price: 760
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/DX ball.jpg",
+            title: "MH PETITRAMA DX 七龍珠 孫悟空 成長軌跡",
+            price: 1800
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/product3.png",
+            title: "Figure-rise 遊戲王 黑暗大法師艾克佐迪亞 增幅版",
+            price: 1080
+          }, {
+            productLink: "./item.html",
+            imgSrc: ".../../picture/product/product2.png",
+            title: "Max Factory 船長 寶鐘瑪琳",
+            price: 4800
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/breath.jpg",
+            title: "T-art 鬼滅之刃 轉蛋系列",
+            price: 999
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/chainsaw.jpg",
+            title: "GSC SEGA 鏈鋸人 淀治",
+            price: 4980
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/edward.jpg",
+            title: "PROOF 鋼之鍊金術師 愛力克兄弟套組<",
+            price: 7900
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/carbee.jpg",
+            title: "Re-Ment 星之卡比盒玩 肚子餓了 卡比廚房",
+            price: 1200
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/onepiece.jpg",
+            title: "MH GEM 海賊王 大和 小時候 RUN!",
+            price: 1350
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/saber.jpg",
+            title: "角川 Fate HF 黑化Saber 和服ver",
+            price: 4500
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/MG.jpg",
+            title: "BANDAI 魔法少年賈修 轉蛋系列",
+            price: 999
+          }, {
+            productLink: "./item.html",
+            imgSrc: "../../picture/product/fairy.jpg",
+            title: "BellFine 魔導少年最終章 艾爾莎．史卡雷特",
+            price: 4880
+          }],
+          footerContentList: [{
+            contentLink: "#",
+            title: "關於我們"
+          }, ]
+        }
+      }
+    }).mount("#app");
+  </script>
+
+
+</body>
+
+</html>
