@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./products.css" />
   </head>
   <body>
+    <div id="app">
     <!-- 導航列 -->
     <header>
       <section class="logo">
@@ -86,30 +87,9 @@
       <section class="nav-list">
         <nav>
           <ul>
-            <li>
-              <a href="index.html"
-                ><i class="fa-solid fa-house-chimney"></i> 首頁</a
-              >
-            </li>
-            <li>
-              <a href="news.html"
-                ><i class="fa-solid fa-table-list"></i> 最新消息</a
-              >
-            </li>
-            <li>
-              <a href="products.html"
-                ><i class="fa-solid fa-bag-shopping"></i> 所有商品</a
-              >
-            </li>
-            <li>
-              <a href="about.html"
-                ><i class="fa-solid fa-address-card"></i> 關於我們</a
-              >
-            </li>
-            <li>
-              <a href="contact.html"
-                ><i class="fa-sharp fa-regular fa-message"></i> 常見Q&A</a
-              >
+            <li v-for="(item, index) in navItems" :key="index">
+              <a :href="item.link">
+                <i :class="item.icon"></i> {{item.text}}</a>
             </li>
           </ul>
         </nav>
@@ -121,35 +101,8 @@
       <!-- 分類list -->
       <div class="list">
         <ul>
-          <li><a href="#">現貨商品</a></li>
-
-          <li><a href="#">預購商品</a></li>
-
-          <li><a href="#">特價專區</a></li>
-
-          <li><a href="#">BANDAI組裝模型</a></li>
-
-          <li><a href="#">PVC公仔-GSC</a></li>
-
-          <li><a href="#">PVC公仔-ALTER</a></li>
-
-          <li><a href="#">PVC公仔-MegaHouse</a></li>
-
-          <li><a href="#">PVC公仔-MaxFactory</a></li>
-
-          <li><a href="#">美系PVC</a></li>
-
-          <li><a href="#">SHF可動人偶</a></li>
-
-          <li><a href="#">BANDAI合金骨架系列</a></li>
-
-          <li><a href="#">日系景品</a></li>
-
-          <li><a href="#">Re-Ment盒玩</a></li>
-
-          <li><a href="#">T-art轉蛋系列</a></li>
-
-          <li><a href="#">GSC黏土人</a></li>
+          <li v-for="(item, index) in listItems" :key="index">
+            <a href="#">{{item.text}}</a></li>
         </ul>
       </div>
       <div class="product">
@@ -162,279 +115,20 @@
         </div>
 
         <div class="cards">
-          <div class="card">
+          <div class="card" v-for="(item, index) in cardItems" :key="index">
             <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/new-profuct/ironMan.png" alt=""
+              <a :href="item.link">
+                <img :src="item.src" alt=""
               /></a>
             </div>
-
-            <p>HOT TOYS 復仇者聯盟 終局之戰 鋼鐵人MK85 戰損</p>
+            <p>{{item.text}}</p>
             <div class="price">
-              <p>$7500</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/new-profuct/sabo.png" alt=""
-              /></a>
-            </div>
-
-            <p>P.O.P 海賊王 LIMITED EDITION 薩波 火拳繼承</p>
-            <div class="price">
-              <p>$7300</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/new-profuct/sugo.png" alt=""
-              /></a>
-            </div>
-
-            <p>threezero VA Hi-SPEC 閃電霹靂車 阿斯拉G.S.X</p>
-            <div class="price">
-              <p>$8500</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/new-profuct/uta.png" alt=""
-              /></a>
-            </div>
-
-            <p>BANDAI 海賊王 惡魔果實公仔 劇場版 美音</p>
-            <div class="price">
-              <p>$1000</p>
-              <button>加入購物車</button>
+              <p>{{item.price}}</p>
+              <button>{{item.btn}}</button>
             </div>
           </div>
         </div>
 
-        <div class="cards">
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/new-profuct/spider.png" alt=""
-              /></a>
-            </div>
-
-            <p>HOT TOYS 蜘蛛人：無家日 融合戰衣款</p>
-            <div class="price">
-              <p>$7650</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/new-profuct/eva.png" alt=""
-              /></a>
-            </div>
-
-            <p>EVA 新世紀福音戰士 初號機 立體造型悠遊卡</p>
-            <div class="price">
-              <p>$800</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/product1.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>Figure-rise 遊戲王 黑暗大法師艾克佐迪亞 增幅版</p>
-            <div class="price">
-              <p>$1080</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/product2.png" alt=""
-              /></a>
-            </div>
-
-            <p>Max Factory 船長 寶鐘瑪琳</p>
-            <div class="price">
-              <p>$4800</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/product3.png" alt=""
-              /></a>
-            </div>
-
-            <p>火影忍者 疾風傳 VIBRATION STARS 宇智波佐助&地達羅</p>
-            <div class="price">
-              <p>$760</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/DX ball.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>MH PETITRAMA DX 七龍珠 孫悟空 成長軌跡</p>
-            <div class="price">
-              <p>$1800</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/rider.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>CSM 假面騎士555 天之帝王 Psyga 天帝驅動器</p>
-            <div class="price">
-              <p>$6500</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/FateGate.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>POP UP PARADE 命運石之門 牧瀨紅莉栖</p>
-            <div class="price">
-              <p>$850</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/breath.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>T-art 鬼滅之刃 轉蛋系列</p>
-            <div class="price">
-              <p>$999</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/chainsaw.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>GSC SEGA 鏈鋸人 淀治</p>
-            <div class="price">
-              <p>$4980</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/edward.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>PROOF 鋼之鍊金術師 愛力克兄弟套組</p>
-            <div class="price">
-              <p>$7900</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/carbee.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>Re-Ment 星之卡比盒玩 肚子餓了 卡比廚房</p>
-            <div class="price">
-              <p>$1200</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="cards">
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/onepiece.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>MH GEM 海賊王 大和 小時候 RUN!</p>
-            <div class="price">
-              <p>$1350</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/saber.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>角川 Fate HF 黑化Saber 和服ver</p>
-            <div class="price">
-              <p>$4500</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/MG.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>BANDAI 魔法少年賈修 轉蛋系列</p>
-            <div class="price">
-              <p>$999</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="pic">
-              <a href="./item.html"
-                ><img src="./picture/product/fairy.jpg" alt=""
-              /></a>
-            </div>
-
-            <p>BellFine 魔導少年最終章 艾爾莎．史卡雷特</p>
-            <div class="price">
-              <p>$4800</p>
-              <button>加入購物車</button>
-            </div>
-          </div>
-        </div>
 
         <div class="page">
           <div class="page-first"><a href="#">1</a></div>
@@ -488,7 +182,209 @@
     <div class="scroll-to-top">
       <img src="./picture/icon/up-arrow.png" alt="" />
     </div>
+  
+ <img src="../index/index.html" alt="">
 
-    <script src="./products.js"></script>
+    </div>
+    <!-- <script src="./products.js"></script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+       Vue.createApp({
+        data() {
+          return {
+            navItems: [
+              {
+                link:"../index/index.html",
+                icon:"fa-solid fa-house-chimney",
+                text:"首頁",
+              },
+              {
+                link:"../news/news.html",
+                icon:"fa-solid fa-table-list",
+                text:"最新消息",
+              },
+              {
+                link:"../products/products.html",
+                icon:"fa-solid fa-bag-shopping",
+                text:"所有商品",
+              },
+              {
+                link:"../about/about.html",
+                icon:"fa-solid fa-address-card",
+                text:"關於我們",
+              },
+              {
+                link:"../contact/contact.html",
+                icon:"fa-sharp fa-regular fa-message",
+                text:"常見Q&A",
+              },
+            ],
+            listItems:[
+              {text: "現貨商品"},
+              {text: "預購商品"},
+              {text: "特價專區"},
+              {text: "BANDAI組裝模型"},
+              {text: "PVC公仔-GSC"},
+              {text: "PVC公仔-ALTER"},
+              {text: "PVC公仔-MegaHouse"},
+              {text: "PVC公仔-MaxFactory"},
+              {text: "美系PVC"},
+              {text: "SHF可動人偶"},
+              {text: "BANDAI合金骨架系列"},
+              {text: "日系景品"},
+              {text: "Re-Ment盒玩"},
+              {text: "T-art轉蛋系列"},
+              {text: "GSC黏土人"},
+            ],
+            cardItems:[
+              {
+                link:"../../item.html",
+                src:"../../picture/new-profuct/ironMan.png",
+                text:"HOT TOYS 復仇者聯盟 終局之戰 鋼鐵人MK85 戰損",
+                price:"$7500",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/new-profuct/sabo.png",
+                text:"P.O.P 海賊王 LIMITED EDITION 薩波 火拳繼承",
+                price:"$7300",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/new-profuct/sugo.png",
+                text:"threezero VA Hi-SPEC 閃電霹靂車 阿斯拉G.S.X",
+                price:"$8500",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/new-profuct/uta.png",
+                text:"BANDAI 海賊王 惡魔果實公仔 劇場版 美音",
+                price:"$1000",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/new-profuct/spider.png",
+                text:"HOT TOYS 蜘蛛人：無家日 融合戰衣款",
+                price:"$7650",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/new-profuct/eva.png",
+                text:"EVA 新世紀福音戰士 初號機 立體造型悠遊卡",
+                price:"$800",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/product1.jpg",
+                text:"Figure-rise 遊戲王 黑暗大法師艾克佐迪亞 增幅版",
+                price:"$1080",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/product2.png",
+                text:"Max Factory 船長 寶鐘瑪琳",
+                price:"$4800",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/product3.png",
+                text:"火影忍者 疾風傳 VIBRATION STARS 宇智波佐助&地達羅",
+                price:"$760",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/DX ball.jpg",
+                text:"MH PETITRAMA DX 七龍珠 孫悟空 成長軌跡",
+                price:"$1800",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/rider.jpg",
+                text:"CSM 假面騎士555 天之帝王 Psyga 天帝驅動器",
+                price:"$6500",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/FateGate.jpg",
+                text:"POP UP PARADE 命運石之門 牧瀨紅莉栖",
+                price:"$850",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/breath.jpg",
+                text:"T-art 鬼滅之刃 轉蛋系列",
+                price:"$999",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/chainsaw.jpg",
+                text:"GSC SEGA 鏈鋸人 淀治",
+                price:"$4980",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/edward.jpg",
+                text:"PROOF 鋼之鍊金術師 愛力克兄弟套組",
+                price:"$7900",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/carbee.jpg",
+                text:"Re-Ment 星之卡比盒玩 肚子餓了 卡比廚房",
+                price:"$1200",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/onepiece.jpg",
+                text:"MH GEM 海賊王 大和 小時候 RUN!",
+                price:"$1350",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/saber.jpg",
+                text:"角川 Fate HF 黑化Saber 和服ver",
+                price:"$4500",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/MG.jpg",
+                text:"BANDAI 魔法少年賈修 轉蛋系列",
+                price:"$999",
+                btn:"加入購物車",
+              },
+              {
+                link:"../../item.html",
+                src:"../../picture/product/fairy.jpg",
+                text:"BellFine 魔導少年最終章 艾爾莎．史卡雷特",
+                price:"$4800",
+                btn:"加入購物車",
+              },
+
+            ],
+            
+          }
+        }
+      }).mount('#app')
+
+      console.log(Vue)
+    </script>
   </body>
 </html>
